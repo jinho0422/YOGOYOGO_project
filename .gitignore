@@ -1,0 +1,5 @@
+node_modules/
+google-services.json/
+*.pth
+*.npy
+*.zip

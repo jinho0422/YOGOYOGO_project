@@ -1,0 +1,83 @@
+TensorFlow 2.0 Upgrade Script
+-----------------------------
+Converted 1 files
+Detected 3 issues that require attention
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+File: train.py
+--------------------------------------------------------------------------------
+train.py:67:6: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+train.py:72:6: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+train.py:125:14: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+================================================================================
+Detailed log follows:
+
+================================================================================
+--------------------------------------------------------------------------------
+Processing file 'train.py'
+ outputting to 'upgrade_train.py'
+--------------------------------------------------------------------------------
+
+33:2: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+35:2: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+37:15: INFO: Renamed 'tf.truncated_normal' to 'tf.random.truncated_normal'
+39:14: INFO: Added keywords to args of function 'tf.nn.conv2d'
+39:14: INFO: Renamed keyword argument for tf.nn.conv2d from filter to filters
+40:3: INFO: Added keywords to args of function 'tf.nn.max_pool'
+40:3: INFO: Renamed keyword argument for tf.nn.max_pool from value to input
+40:3: INFO: Renamed 'tf.nn.max_pool' to 'tf.nn.max_pool2d'
+41:3: INFO: Changing keep_prob arg of tf.nn.dropout to rate
+
+43:15: INFO: Renamed 'tf.truncated_normal' to 'tf.random.truncated_normal'
+45:14: INFO: Added keywords to args of function 'tf.nn.conv2d'
+45:14: INFO: Renamed keyword argument for tf.nn.conv2d from filter to filters
+46:3: INFO: Added keywords to args of function 'tf.nn.max_pool'
+46:3: INFO: Renamed keyword argument for tf.nn.max_pool from value to input
+46:3: INFO: Renamed 'tf.nn.max_pool' to 'tf.nn.max_pool2d'
+47:3: INFO: Changing keep_prob arg of tf.nn.dropout to rate
+
+49:15: INFO: Renamed 'tf.truncated_normal' to 'tf.random.truncated_normal'
+51:14: INFO: Added keywords to args of function 'tf.nn.conv2d'
+51:14: INFO: Renamed keyword argument for tf.nn.conv2d from filter to filters
+52:3: INFO: Changing keep_prob arg of tf.nn.dropout to rate
+
+54:15: INFO: Renamed 'tf.truncated_normal' to 'tf.random.truncated_normal'
+56:14: INFO: Added keywords to args of function 'tf.nn.conv2d'
+56:14: INFO: Renamed keyword argument for tf.nn.conv2d from filter to filters
+57:3: INFO: Changing keep_prob arg of tf.nn.dropout to rate
+
+59:15: INFO: Renamed 'tf.truncated_normal' to 'tf.random.truncated_normal'
+61:14: INFO: Added keywords to args of function 'tf.nn.conv2d'
+61:14: INFO: Renamed keyword argument for tf.nn.conv2d from filter to filters
+62:3: INFO: Changing keep_prob arg of tf.nn.dropout to rate
+
+63:3: INFO: Added keywords to args of function 'tf.nn.max_pool'
+63:3: INFO: Renamed keyword argument for tf.nn.max_pool from value to input
+63:3: INFO: Renamed 'tf.nn.max_pool' to 'tf.nn.max_pool2d'
+67:6: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+67:6: INFO: Renamed 'tf.get_variable' to 'tf.compat.v1.get_variable'
+67:59: INFO: Changing tf.contrib.layers xavier initializer to a tf.compat.v1.keras.initializers.VarianceScaling and converting arguments.
+
+70:6: INFO: Changing keep_prob arg of tf.nn.dropout to rate
+
+72:6: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+72:6: INFO: Renamed 'tf.get_variable' to 'tf.compat.v1.get_variable'
+72:55: INFO: Changing tf.contrib.layers xavier initializer to a tf.compat.v1.keras.initializers.VarianceScaling and converting arguments.
+
+73:18: INFO: Renamed 'tf.random_normal' to 'tf.random.normal'
+77:5: INFO: Added keywords to args of function 'tf.reduce_mean'
+77:20: INFO: Changing labels arg of tf.nn.softmax_cross_entropy_with_logits to tf.stop_gradient(labels). Please check this transformation.
+
+78:10: INFO: Renamed 'tf.train.AdamOptimizer' to 'tf.compat.v1.train.AdamOptimizer'
+80:28: INFO: Added keywords to args of function 'tf.argmax'
+80:48: INFO: Added keywords to args of function 'tf.argmax'
+81:9: INFO: Added keywords to args of function 'tf.reduce_mean'
+90:5: INFO: Renamed 'tf.Session' to 'tf.compat.v1.Session'
+91:10: INFO: Renamed 'tf.train.Saver' to 'tf.compat.v1.train.Saver'
+91:25: INFO: Renamed 'tf.global_variables' to 'tf.compat.v1.global_variables'
+95:16: INFO: Renamed 'tf.train.checkpoint_exists' to 'tf.compat.v1.train.checkpoint_exists'
+99:17: INFO: Renamed 'tf.global_variables_initializer' to 'tf.compat.v1.global_variables_initializer'
+125:14: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+126:4: INFO: Renamed 'tf.saved_model.simple_save' to 'tf.compat.v1.saved_model.simple_save'
+--------------------------------------------------------------------------------
+
